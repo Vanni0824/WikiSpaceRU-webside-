@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Космодромы России</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .map-image-container {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .map-image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .map-point-overlay {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            border: 3px solid white;
+            border-radius: 50%;
+            cursor: pointer;
+            transform: translate(-50%, -50%);
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .map-point-overlay:hover {
+            background-color: #ffeb3b;
+            transform: translate(-50%, -50%) scale(1.3);
+            box-shadow: 0 0 15px rgba(255, 235, 59, 0.8);
+        }
+
+
+        .map-info-box {
+            margin-top: 20px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-left: 4px solid #0b3d91;
+            border-radius: 4px;
+            min-height: 100px;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+
+        .map-info-box.hidden {
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+
+<header class="site-header">
+        <div class="container">
+            <h1 class="logo">🚀 Космонавтика России</h1>
+            <nav class="main-nav">
+                <!-- Меню должно быть адаптивным (на мобильных часто делают "гамбургер") -->
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="pioneers.html">Пионеры</a></li>
+                    <li><a href="cosmodromes.html" class="active">Космодромы</a></li>
+                    <li><a href="achievements.html">Достижения</a></li>
+                    <li><a href="future.html">Будущее</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+<main class="container">
+    <section class="map-section">
+        <h2>Интерактивная карта космодромов</h2>
+        <p>Нажмите на красную точку на карте, чтобы узнать подробности о космодроме.</p>
+        
+        <div class="map-image-container">
+            <!-- Ваша карта -->
+            <img src="https://galspace.spb.ru/nature.file/kosmodrom.file/plan.jpg" alt="Карта космодромов мира">
+            
+            <!-- Точки -->
+            <div id="point-baikonur" class="map-point-overlay" data-info="baikonur" title="Байконур">
+            </div>
+            <div id="point-plesetsk" class="map-point-overlay" data-info="plesetsk" title="Плесецк">
+            </div>
+            <div id="point-vostochny" class="map-point-overlay" data-info="vostochny" title="Восточный">
+            </div>
+        </div>
+
+        <div id="map-description" class="map-info-box">
+            <p>Выберите космодром на карте, чтобы увидеть информацию.</p>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2026 История Российской Космонавтики.</p>
+    </div>
+</footer>
+
+<style>
+    .map-image-container {
+        position: relative;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .map-image-container img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .map-point-overlay {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background-color: red;
+        border: 3px solid white;
+        border-radius: 50%;
+        cursor: pointer;
+        transform: translate(-50%, -50%);
+        transition: all 0.3s ease;
+        z-index: 10;
+    }
+
+    .map-point-overlay:hover {
+        background-color: #ffeb3b;
+        transform: translate(-50%, -50%) scale(1.3);
+        box-shadow: 0 0 15px rgba(255, 235, 59, 0.8);
+    }
+
+    /* Координаты точек (примерные, под вашу карту) */
+    #point-baikonur { top: 24%; left: 64.9%; }
+    #point-plesetsk { top: 12%; left: 56.4%; }
+    #point-vostochny { top: 22%; left: 87%; }
+
+    .map-info-box {
+        margin-top: 20px;
+        padding: 20px;
+        background: #f9f9f9;
+        border-left: 4px solid #0b3d91;
+        border-radius: 4px;
+        min-height: 100px;
+        opacity: 1;
+        transition: opacity 0.3s ease;
+    }
+
+    .map-info-box.hidden {
+        opacity: 0;
+    }
+
+    /* НОВЫЙ СТИЛЬ ДЛЯ КАРТИНОК ВНУТРИ ОПИСАНИЯ */
+    .map-info-box img {
+        display: block;
+        margin: 10px auto 15px auto;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+</style>
+
+<script src="script.js"></script>
+</body>
+</html>
